@@ -1,0 +1,9 @@
+.principalContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: auto;
+    padding: 30px;
+}

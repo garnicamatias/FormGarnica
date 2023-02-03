@@ -1,0 +1,50 @@
+form{
+    border: 1px solid gray;
+    box-shadow: 6px 7px 5px -4px rgba(0,0,0,0.65);
+    padding: 20px;
+    width: 450px;
+}
+
+.inputRadioContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.signinBtnContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+}
+
+.signinBtnContainer button{
+    width: 200px;
+}
+
+.invalidInputText{
+    color: rgb(255, 43, 43);
+}
+
+.validInput{
+    border: 2px solid green;
+}
+
+
+.validInput:focus{
+    outline: none;
+}
+
+.invalidInput{
+    border: 2px solid red;
+}
+
+.invalidInput:focus{
+    outline: none;
+}
+
+button:disabled{
+    opacity: 0.3;
+    cursor: not-allowed !important;
+    pointer-events: all !important;
+}
