@@ -63,6 +63,11 @@ export class SigninFormComponent {
     return 'form-control'
   }
 
+  requiredAlert(input : string): boolean{
+    return this.signinForm.controls[input].errors?.['required'] && (this.signinForm.controls[input].dirty || this.signinForm.controls[input].touched)
+  }
+
+
   signin(){
     console.log(this.signinForm)
   }

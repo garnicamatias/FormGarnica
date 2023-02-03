@@ -1,34 +1,40 @@
 <form [formGroup]="signinForm" (ngSubmit)="signin()">
+    
 <div class="mb-3">
     <label for="inputName" class="form-label">Nombre</label>
     <input formControlName="name" type="text" [ngClass]="getClass('name')" class="form-control" id="inputName">
-    <div *ngIf="signinForm.controls['name'].errors?.['required'] && (signinForm.controls['name'].dirty || signinForm.controls['name'].touched)" class="invalidInputText">Este campo es requerido</div>
+    <div *ngIf="requiredAlert('name')" class="invalidInputText">Este campo es requerido</div>
 </div>
+
 <div class="mb-3">
     <label for="inputSurname" class="form-label">Apellido</label>
     <input formControlName="surname" type="text" [ngClass]="getClass('surname')" class="form-control" id="inputSurname">
-    <div *ngIf="signinForm.controls['surname'].errors?.['required'] && (signinForm.controls['surname'].dirty || signinForm.controls['surname'].touched)" class="invalidInputText">Este campo es requerido</div>
+    <div *ngIf="requiredAlert('surname')" class="invalidInputText">Este campo es requerido</div>
 </div>
+
 <div class="mb-3">
     <label for="inputUsername" class="form-label">Nombre de Usuario</label>
     <input formControlName="username" type="text" [ngClass]="getClass('username')" class="form-control" id="inputUser">
-    <div *ngIf="signinForm.controls['username'].errors?.['required'] && (signinForm.controls['username'].dirty || signinForm.controls['username'].touched)" class="invalidInputText">Este campo es requerido</div>
+    <div *ngIf="requiredAlert('username')" class="invalidInputText">Este campo es requerido</div>
     <div *ngIf="signinForm.controls['username'].errors?.['minlength'] || signinForm.controls['username'].errors?.['maxlength'] " class="invalidInputText">Debe contener entre 5 y 15 caracteres</div>
 </div>
+
 <div class="mb-3">
     <label for="inputEmail" class="form-label">Email</label>
     <input formControlName="email" type="email" [ngClass]="getClass('email')"  class="form-control" id="inputEmail" placeholder="ejemplo@usermail.com">
-    <div *ngIf="signinForm.controls['email'].errors?.['required'] && (signinForm.controls['email'].dirty || signinForm.controls['email'].touched)" class="invalidInputText">Este campo es requerido</div>
+    <div *ngIf="requiredAlert('email')" class="invalidInputText">Este campo es requerido</div>
     <div *ngIf="signinForm.controls['email'].errors?.['pattern']" class="invalidInputText">El email no es válido</div>
 
 </div>
+
 <div class="mb-3">
     <label for="inputPass" class="form-label">Contraseña</label>
     <input formControlName="password" type="password" [ngClass]="getClass('password')" class="form-control" id="input" placeholder="**********">
-    <div *ngIf="signinForm.controls['password'].errors?.['required'] && (signinForm.controls['password'].dirty || signinForm.controls['password'].touched)" class="invalidInputText">Este campo es requerido</div>
+    <div *ngIf="requiredAlert('password')" class="invalidInputText">Este campo es requerido</div>
     <div *ngIf="signinForm.controls['password'].errors?.['pattern']" class="invalidInputText">La contraseña debe tener al menos 8 caracteres, contener al menos un número, una letra minúscula y una letra mayúscula </div>
 </div>
-<p>Tipo de usuario:</p>
+
+<p>Elija el tipo de usuario:</p>
 <div class="mb-3 form-check inputRadioContainer">
     <div>
         <input formControlName="usertype" type="radio" class="form-check-input" name="usertype" id="professor" value="professor">
@@ -39,9 +45,10 @@
         <label class="form-check-label" for="student">Alumno</label>
     </div>
 </div>
-<div *ngIf="signinForm.controls['usertype'].errors?.['required']" class="invalidInputText">Debe elegir un tipo de usuario</div>
+
 <div class="signinBtnContainer">
     <button type="submit" [disabled]="signinForm.invalid" class="btn btn-primary">Registrarse</button>
     <button class="btn btn-secondary">Ya tengo una cuenta</button>
 </div>
+
 </form>
